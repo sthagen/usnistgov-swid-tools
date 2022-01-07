@@ -41,7 +41,8 @@ import java.util.Collections;
 
 import javax.xml.transform.stream.StreamSource;
 
-public class SWIDRequirementsManager extends DefaultRequirementsManager {
+public class SWIDRequirementsManager
+    extends DefaultRequirementsManager {
   private static SWIDRequirementsManager INSTANCE;
 
   /**
@@ -62,7 +63,7 @@ public class SWIDRequirementsManager extends DefaultRequirementsManager {
   public SWIDRequirementsManager() {
     try {
       load(new URL("classpath:requirements.xml"), new XMLRequirementsParser(
-          Collections.singletonList(new StreamSource("classpath:swid-requirements-ext.xsd"))));
+          Collections.singletonList(new StreamSource("classpath:schema/swid-requirements-ext.xsd"))));
     } catch (URISyntaxException | MalformedURLException | RequirementsParserException | JDOMException
         | SAXException ex) {
       throw new RuntimeException(ex);

@@ -28,9 +28,12 @@ package gov.nist.secauto.swid.swidval.services;
 
 import gov.nist.secauto.decima.xml.service.AbstractCatalogResourceResolverExtension;
 
-public class SWIDResourceResolverExtension extends AbstractCatalogResourceResolverExtension {
+import java.net.URI;
+
+public class SWIDResourceResolverExtension
+    extends AbstractCatalogResourceResolverExtension {
 
   public SWIDResourceResolverExtension() {
-    super("classpath:swidval-catalog.xml");
+    super(URI.create("classpath:schema/swidval-catalog.xml"));
   }
 }
