@@ -36,11 +36,11 @@ jobs:
       with:
         maven-version: 3.9.3
     - id: setup-java-deploy
-      name: Set up JDK 11 (deploy)
+      name: Set up JDK 17 (deploy)
       if: ${{ env.BUILD_SNAPSHOT == 'true' }}
       uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00
       with:
-        java-version: 11
+        java-version: 17
         distribution: 'temurin'
         cache: 'maven'
         server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
@@ -48,11 +48,11 @@ jobs:
         server-password: MAVEN_CENTRAL_TOKEN # env variable for token in deploy
         gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }} # Value of the GPG private key to import
         gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
-    - name: Set up JDK 11 (build only)
+    - name: Set up JDK 17 (build only)
       if:  ${{ steps.setup-java-deploy.outcome == 'skipped' }}
       uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00
       with:
-        java-version: 11
+        java-version: 17
         distribution: 'temurin'
         cache: 'maven'
     - name: Initialize CodeQL
