@@ -31,23 +31,15 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 
 import java.util.Set;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 
 public class MyWebApplicationInitializer implements WebApplicationInitializer {
   private static final Logger log = LogManager.getLogger();
-
-  @Override
-  public void onStartup(ServletContext container) {
-    ServletRegistration.Dynamic registration = container.addServlet("swidval", new DispatcherServlet());
-    registration.setLoadOnStartup(1);
-    Set<String> mappings = registration.addMapping("/");
-    log.info("Servlet mappings: " + mappings);
-  }
 
   @Override
   public void onStartup(jakarta.servlet.ServletContext servletContext) throws ServletException {
