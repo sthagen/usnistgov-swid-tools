@@ -29,22 +29,15 @@ package gov.nist.secauto.swid.swidval.webapp;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.servlet.DispatcherServlet;
-
-import java.util.Set;
-
-import javax.servlet.ServletContext;
-import javax.servlet.ServletRegistration;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 
 public class MyWebApplicationInitializer implements WebApplicationInitializer {
   private static final Logger log = LogManager.getLogger();
 
   @Override
-  public void onStartup(ServletContext container) {
-    ServletRegistration.Dynamic registration = container.addServlet("swidval", new DispatcherServlet());
-    registration.setLoadOnStartup(1);
-    Set<String> mappings = registration.addMapping("/");
-    log.info("Servlet mappings: " + mappings);
+  public void onStartup(ServletContext servletContext) throws ServletException {
+    // NOTE: Auto-generated method stub, left as no-op.
   }
 
 }
