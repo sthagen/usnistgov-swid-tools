@@ -29,20 +29,14 @@ package gov.nist.secauto.swid.swidval.webapp;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.servlet.DispatcherServlet;
-
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
-
-import java.util.Set;
-
-import javax.servlet.ServletRegistration;
 
 public class MyWebApplicationInitializer implements WebApplicationInitializer {
   private static final Logger log = LogManager.getLogger();
 
   @Override
-  public void onStartup(jakarta.servlet.ServletContext servletContext) throws ServletException {
+  public void onStartup(ServletContext servletContext) throws ServletException {
     // NOTE: Auto-generated method stub, left as no-op.
   }
 
