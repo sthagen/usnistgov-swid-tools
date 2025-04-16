@@ -37,8 +37,8 @@ import org.springframework.web.servlet.view.AbstractView;
 import java.net.URI;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import javax.xml.transform.stream.StreamResult;
 
 public class DecimaResultView
@@ -46,7 +46,7 @@ public class DecimaResultView
 
   @Override
   protected void renderMergedOutputModel(Map<String, Object> model, HttpServletRequest request,
-      HttpServletResponse response) throws Exception {
+		  HttpServletResponse response) throws Exception {
     AssessmentResults results = (AssessmentResults) model.get(SWIDValController.MODEL_KEY_ASSESSMENT_RESULT);
 
     XMLResultBuilder writer = new XMLResultBuilder();
