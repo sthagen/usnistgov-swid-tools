@@ -24,7 +24,7 @@ jobs:
       BUILD_SNAPSHOT: ${{ (github.event_name == 'push' || github.event_name == 'workflow_dispatch') &&
                           (github.ref_name == 'develop' || startsWith(github.ref_name, 'release-')) }}
     steps:
-    - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
+    - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
       with:
         submodules: recursive
         filter: tree:0
@@ -57,7 +57,7 @@ jobs:
         cache: 'maven'
     - name: Initialize CodeQL
       if: github.event_name == 'push'
-      uses: github/codeql-action/init@fe4161a26a8629af62121b670040955b330f9af2
+      uses: github/codeql-action/init@5d4e8d1aca955e8d8589aabd499c5cae939e33c7
       with:
         languages: java
     # -------------------------
@@ -78,7 +78,7 @@ jobs:
         mvn -B -e -Prelease -Preporting install
     - name: Perform CodeQL Analysis
       if: github.event_name == 'push'
-      uses: github/codeql-action/analyze@fe4161a26a8629af62121b670040955b330f9af2
+      uses: github/codeql-action/analyze@5d4e8d1aca955e8d8589aabd499c5cae939e33c7
       with:
         upload: ${{ (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref_name == 'develop' && 'always' || 'never' }}
     - name: Test Website
